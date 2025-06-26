@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Panel</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                    <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                    <li><a href="#portfolio"><i class="fas fa-image"></i> My Work</a></li>
+                    <li><a href="#messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section id="profile" class="admin-section active">
+                <h2>Manage Profile</h2>
+                <form class="admin-form">
+                    <div class="input-group">
+                        <label for="profile-greeting">Greeting Text</label>
+                        <input type="text" id="profile-greeting" value="Hello, Watashi Wa Namae Wa">
+                    </div>
+                    <div class="input-group">
+                        <label for="profile-name">Full Name</label>
+                        <input type="text" id="profile-name" value="Aria Dimas Mastur">
+                    </div>
+                    <div class="input-group">
+                        <label for="profile-subtitle">Subtitle (Typewriter Text)</label>
+                        <input type="text" id="profile-subtitle" value="Creative Web Designer, UI/UX Designer, ...">
+                        <small>Pisahkan dengan koma untuk efek typewriter.</small>
+                    </div>
+                    <div class="input-group">
+                        <label for="profile-description">Description</label>
+                        <textarea id="profile-description" rows="4">I'm a graphic designer, illustrator and web designer creating awesome and effective visual identities for companies.</textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="profile-image">Profile Picture</label>
+                        <input type="file" id="profile-image">
+                        <small>Upload gambar baru untuk mengganti foto profil di section Home dan About.</small>
+                    </div>
+                    <button type="submit" class="btn">Save Profile</button>
+                </form>
+            </section>
+
+            <section id="experience" class="admin-section">
+                <h2>Manage Experience</h2>
+                <div class="content-list">
+                    <div class="list-item">
+                        <div>
+                            <h4>Formadiksi KIP-K Umrah</h4>
+                            <p>February 2022 - December 2023</p>
+                        </div>
+                        <div>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <form class="admin-form" id="add-experience-form">
+                    <h3>Add New Experience</h3>
+                    <div class="input-group">
+                        <label for="exp-title">Title / Company</label>
+                        <input type="text" id="exp-title" placeholder="e.g., UI/UX Designer at Google">
+                    </div>
+                    <div class="input-group">
+                        <label for="exp-duration">Duration</label>
+                        <input type="text" id="exp-duration" placeholder="e.g., January 2024 - Present">
+                    </div>
+                    <div class="input-group">
+                        <label for="exp-description">Description</label>
+                        <textarea id="exp-description" rows="3"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="exp-image">Image (Optional)</label>
+                        <input type="file" id="exp-image">
+                    </div>
+                    <button type="submit" class="btn">Add Experience</button>
+                </form>
+            </section>
+
+            <section id="education" class="admin-section">
+                <h2>Manage Education</h2>
+                <div class="content-list">
+                     <div class="list-item">
+                        <div>
+                            <h4>Bachelor in Engineering in Information Technology</h4>
+                            <p>2018 - 2022</p>
+                        </div>
+                        <div>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <form class="admin-form" id="add-education-form">
+                    <h3>Add New Education</h3>
+                    <div class="input-group">
+                        <label for="edu-degree">Degree / School</label>
+                        <input type="text" id="edu-degree" placeholder="e.g., S1 Teknik Informatika at UMRAH">
+                    </div>
+                     <div class="input-group">
+                        <label for="edu-duration">Duration</label>
+                        <input type="text" id="edu-duration" placeholder="e.g., 2020 - 2024">
+                    </div>
+                    <div class="input-group">
+                        <label for="edu-description">Description</label>
+                        <textarea id="edu-description" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Add Education</button>
+                </form>
+            </section>
+
+            <section id="portfolio" class="admin-section">
+                <h2>Manage My Work (Portfolio)</h2>
+                 <div class="content-list">
+                     <div class="list-item">
+                        <div>
+                            <h4>Cashier Website</h4>
+                            <p>Web Design</p>
+                        </div>
+                        <div>
+                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                 </div>
+                <form class="admin-form" id="add-portfolio-form">
+                    <h3>Add New Work</h3>
+                    <div class="input-group">
+                        <label for="work-title">Project Title</label>
+                        <input type="text" id="work-title">
+                    </div>
+                    <div class="input-group">
+                        <label for="work-category">Category</label>
+                        <select id="work-category">
+                            <option value="web">Web Design</option>
+                            <option value="mobile">Mobile App</option>
+                            <option value="branding">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="work-image">Project Image</label>
+                        <input type="file" id="work-image">
+                    </div>
+                     <div class="input-group">
+                        <label for="work-link">Project Link (Optional)</label>
+                        <input type="url" id="work-link" placeholder="https://example.com">
+                    </div>
+                    <button type="submit" class="btn">Add Work</button>
+                </form>
+            </section>
+
+            <section id="messages" class="admin-section">
+                <h2>Contact Messages</h2>
+                <div class="content-list">
+                    <div class="list-item message-item">
+                        <div>
+                            <h4>John Doe <small>&lt;john.doe@example.com&gt;</small></h4>
+                            <p><strong>Subject:</strong> Project Inquiry</p>
+                            <p>This is the message content from the user...</p>
+                        </div>
+                         <div>
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>
