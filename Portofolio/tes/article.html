@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Aria Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="article.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Aria</a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#experience" class="nav-link">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#education" class="nav-link">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#services" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#skills" class="nav-link">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#contact" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="article.html" class="nav-link">Articles</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="admin-logo">
+                <a href="admin-login.html">
+                    <img src="images/unnamed.gif" alt="Admin Access" class="admin-logo-img">
+                </a>
+            </div>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-main">
+        <div class="article-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <a href="article.html">Articles</a>
+                </div>
+                <h1 id="project-title" class="article-title">Articles</h1>
+                <div class="article-meta">
+                    <span class="meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span id="project-date">2024</span>
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-tag"></i>
+                        <span id="project-category">Web Design</span>
+                    </span>
+                    <span class="meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="project-duration">2 weeks</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="main-content">
+                        <div class="project-overview">
+                            <h2>Project Overview</h2>
+                            <p id="project-description">
+                                This is a detailed description of the project. It will be dynamically populated based on the selected portfolio item.
+                            </p>
+                        </div>
+
+                        <div class="project-gallery">
+                            <h2>Project Gallery</h2>
+                            <div class="gallery-grid" id="project-gallery">
+                                <!-- Images will be dynamically loaded here -->
+                            </div>
+                        </div>
+
+                        <div class="project-details">
+                            <h2>Technical Details</h2>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <h3>Technologies Used</h3>
+                                    <div id="project-technologies" class="tech-tags">
+                                        <!-- Technologies will be loaded here -->
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <h3>Challenges & Solutions</h3>
+                                    <p id="project-challenges">
+                                        Details about challenges faced and solutions implemented.
+                                    </p>
+                                </div>
+                                <div class="detail-item">
+                                    <h3>Results & Impact</h3>
+                                    <p id="project-results">
+                                        The outcomes and impact of this project.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <div class="project-info-card">
+                            <h3>Project Information</h3>
+                            <div class="info-item">
+                                <strong>Client:</strong>
+                                <span id="project-client">Client Name</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Role:</strong>
+                                <span id="project-role">Designer & Developer</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Timeline:</strong>
+                                <span id="project-timeline">2 weeks</span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Status:</strong>
+                                <span id="project-status" class="status-completed">Completed</span>
+                            </div>
+                        </div>
+
+                        <div class="related-projects">
+                            <h3>Related Projects</h3>
+                            <div class="related-grid">
+                                <div class="related-item">
+                                    <img src="images/Cashier Website.jpg" alt="Related Project">
+                                    <div class="related-info">
+                                        <h4>Cashier Website</h4>
+                                        <p>Web Design</p>
+                                    </div>
+                                </div>
+                                <div class="related-item">
+                                    <img src="images/Mobile News App.jpeg" alt="Related Project">
+                                    <div class="related-info">
+                                        <h4>Mobile News App</h4>
+                                        <p>Mobile App</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-navigation">
+            <div class="container">
+                <div class="nav-buttons">
+                    <a href="#" class="nav-btn prev-btn" id="prev-project">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Previous Project</span>
+                    </a>
+                    <a href="index.html#portfolio" class="nav-btn back-btn">
+                        <i class="fas fa-grid"></i>
+                        <span>Back to Portfolio</span>
+                    </a>
+                    <a href="#" class="nav-btn next-btn" id="next-project">
+                        <span>Next Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Aria Dimas Mastur. All rights reserved.</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/Ariawilson" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/AriaD04" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ariad.8?igsh=Y3FlM2ZwMXQ4c2hm" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/6282172127140" target="_blank" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="article.js"></script>
+</body>
+</html>
+

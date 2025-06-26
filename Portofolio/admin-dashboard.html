@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Aria Portfolio</title>
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="admin-profile">
+                    <img src="images/profile.png" alt="Admin Profile" class="admin-avatar" id="sidebar-avatar">
+                    <div class="admin-info">
+                        <h3>Aria Dimas</h3>
+                        <span>Administrator</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#profile" class="nav-link active" data-section="profile">
+                            <i class="fas fa-user"></i>
+                            <span>Profile Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#experience" class="nav-link" data-section="experience">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Experience</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#education" class="nav-link" data-section="education">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Education</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link" data-section="portfolio">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Portfolio</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#articles" class="nav-link" data-section="articles">
+                            <i class="fas fa-newspaper"></i>
+                            <span>Articles</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#messages" class="nav-link" data-section="messages">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Messages</span>
+                            <span class="message-count" id="message-count">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-section="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="sidebar-footer">
+                    <button class="logout-btn" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="content-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title" id="page-title">Profile Management</h1>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <div class="admin-dropdown">
+                            <button class="admin-btn">
+                                <img src="images/profile.png" alt="Admin" class="header-avatar">
+                                <span>Aria Dimas</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#profile" class="dropdown-item">
+                                    <i class="fas fa-user"></i> Profile
+                                </a>
+                                <a href="#settings" class="dropdown-item">
+                                    <i class="fas fa-cog"></i> Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item" id="header-logout">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-body">
+                <!-- Profile Management Section -->
+                <section id="profile" class="admin-section active">
+                    <div class="section-header">
+                        <h2>Profile Management</h2>
+                        <p>Manage your personal information and profile settings</p>
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Profile Information</h3>
+                                <button class="btn btn-primary" id="save-profile">
+                                    <i class="fas fa-save"></i> Save Changes
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <form class="admin-form" id="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="profile-greeting">Greeting Text</label>
+                                            <input type="text" id="profile-greeting" value="Hello, Watashi Wa Namae Wa" placeholder="Enter greeting text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-name">Full Name</label>
+                                            <input type="text" id="profile-name" value="Aria Dimas Mastur" placeholder="Enter your full name">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profile-subtitle">Professional Title</label>
+                                        <input type="text" id="profile-subtitle" value="Creative Web Designer, UI/UX Designer, Graphic Designer" placeholder="Enter your professional titles (comma separated)">
+                                        <small class="form-help">Separate multiple titles with commas for typewriter effect</small>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="profile-description">About Description</label>
+                                        <textarea id="profile-description" rows="4" placeholder="Write about yourself...">I'm a graphic designer, illustrator and web designer creating awesome and effective visual identities for companies.</textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Profile Photo</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="photo-upload-section">
+                                    <div class="current-photo">
+                                        <img src="images/profile.png" alt="Current Profile Photo" id="current-profile-photo">
+                                        <div class="photo-overlay">
+                                            <button class="change-photo-btn" id="change-photo-btn">
+                                                <i class="fas fa-camera"></i>
+                                                Change Photo
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="profile-image-input" accept="image/*" style="display: none;">
+                                    <div class="photo-info">
+                                        <h4>Profile Photo Guidelines</h4>
+                                        <ul>
+                                            <li>Recommended size: 400x400 pixels</li>
+                                            <li>Supported formats: JPG, PNG, WebP</li>
+                                            <li>Maximum file size: 5MB</li>
+                                            <li>Square aspect ratio works best</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience Section -->
+                <section id="experience" class="admin-section">
+                    <div class="section-header">
+                        <h2>Experience Management</h2>
+                        <p>Manage your professional experience and work history</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Experience List</h3>
+                            <button class="btn btn-primary" id="add-experience-btn">
+                                <i class="fas fa-plus"></i> Add Experience
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="experience-list" id="experience-list">
+                                <div class="experience-item" data-id="1">
+                                    <div class="item-content">
+                                        <div class="item-header">
+                                            <h4>Formadiksi KIP-K Umrah</h4>
+                                            <div class="item-actions">
+                                                <button class="btn-icon edit-btn" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="item-duration">February 2022 - December 2023</p>
+                                        <p class="item-description">Managed multiple design projects and coordinated with clients to deliver exceptional results.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add/Edit Experience Modal -->
+                    <div class="modal" id="experience-modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="experience-modal-title">Add New Experience</h3>
+                                <button class="modal-close" id="experience-modal-close">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="admin-form" id="experience-form">
+                                    <div class="form-group">
+                                        <label for="exp-title">Company/Position Title</label>
+                                        <input type="text" id="exp-title" placeholder="e.g., UI/UX Designer at Google" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exp-duration">Duration</label>
+                                        <input type="text" id="exp-duration" placeholder="e.g., January 2024 - Present" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exp-description">Description</label>
+                                        <textarea id="exp-description" rows="4" placeholder="Describe your role and achievements..."></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exp-image">Company Logo/Image (Optional)</label>
+                                        <input type="file" id="exp-image" accept="image/*">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" id="experience-cancel">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="experience-save">Save Experience</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section id="education" class="admin-section">
+                    <div class="section-header">
+                        <h2>Education Management</h2>
+                        <p>Manage your educational background and qualifications</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Education List</h3>
+                            <button class="btn btn-primary" id="add-education-btn">
+                                <i class="fas fa-plus"></i> Add Education
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="education-list" id="education-list">
+                                <div class="education-item" data-id="1">
+                                    <div class="item-content">
+                                        <div class="item-header">
+                                            <h4>Bachelor in Engineering in Information Technology</h4>
+                                            <div class="item-actions">
+                                                <button class="btn-icon edit-btn" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="item-duration">2022 - 2024</p>
+                                        <p class="item-description">Informatics Engineering student specializing in software development and artificial intelligence.</p>
+                                    </div>
+                                </div>
+                                <div class="education-item" data-id="2">
+                                    <div class="item-content">
+                                        <div class="item-header">
+                                            <h4>Senior High School 25 Batam</h4>
+                                            <div class="item-actions">
+                                                <button class="btn-icon edit-btn" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p class="item-duration">2019 - 2022</p>
+                                        <p class="item-description">MIPA (Science) major with a focus on mathematics and physics, enhancing analytical and problem-solving skills.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add/Edit Education Modal -->
+                    <div class="modal" id="education-modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="education-modal-title">Add New Education</h3>
+                                <button class="modal-close" id="education-modal-close">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="admin-form" id="education-form">
+                                    <div class="form-group">
+                                        <label for="edu-degree">Degree/School Name</label>
+                                        <input type="text" id="edu-degree" placeholder="e.g., Bachelor of Computer Science" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edu-duration">Duration</label>
+                                        <input type="text" id="edu-duration" placeholder="e.g., 2020 - 2024" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edu-description">Description</label>
+                                        <textarea id="edu-description" rows="4" placeholder="Describe your studies and achievements..."></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" id="education-cancel">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="education-save">Save Education</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Portfolio Section -->
+                <section id="portfolio" class="admin-section">
+                    <div class="section-header">
+                        <h2>Portfolio Management</h2>
+                        <p>Manage your portfolio projects and showcase your work</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Portfolio Projects</h3>
+                            <button class="btn btn-primary" id="add-portfolio-btn">
+                                <i class="fas fa-plus"></i> Add Project
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="portfolio-grid" id="portfolio-grid">
+                                <div class="portfolio-item" data-id="1">
+                                    <div class="portfolio-image">
+                                        <img src="images/profile.png" alt="Cashier Website">
+                                        <div class="portfolio-overlay">
+                                            <div class="portfolio-actions">
+                                                <button class="btn-icon edit-btn" title="Edit">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-info">
+                                        <h4>Cashier Website</h4>
+                                        <p class="portfolio-category">Web Design</p>
+                                        <a href="#" class="portfolio-link">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add/Edit Portfolio Modal -->
+                    <div class="modal" id="portfolio-modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="portfolio-modal-title">Add New Project</h3>
+                                <button class="modal-close" id="portfolio-modal-close">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="admin-form" id="portfolio-form">
+                                    <div class="form-group">
+                                        <label for="portfolio-title">Project Title</label>
+                                        <input type="text" id="portfolio-title" placeholder="e.g., E-commerce Website" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="portfolio-category">Category</label>
+                                        <select id="portfolio-category" required>
+                                            <option value="">Select Category</option>
+                                            <option value="web">Web Design</option>
+                                            <option value="mobile">Mobile App</option>
+                                            <option value="branding">Branding</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="portfolio-description">Description</label>
+                                        <textarea id="portfolio-description" rows="4" placeholder="Describe the project..."></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="portfolio-image">Project Image</label>
+                                        <input type="file" id="portfolio-image" accept="image/*" required>
+                                        <div class="image-preview" id="portfolio-image-preview"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="portfolio-link">Project Link (Optional)</label>
+                                        <input type="url" id="portfolio-link" placeholder="https://example.com">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" id="portfolio-cancel">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="portfolio-save">Save Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Articles Section -->
+                <section id="articles" class="admin-section">
+                    <div class="section-header">
+                        <h2>Articles Management</h2>
+                        <p>Manage your blog articles and content</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Published Articles</h3>
+                            <button class="btn btn-primary" id="add-article-btn">
+                                <i class="fas fa-plus"></i> Add Article
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="articles-list" id="articles-list">
+                                <div class="article-item" data-id="1">
+                                    <div class="article-content">
+                                        <div class="article-header">
+                                            <h4>Getting Started with Web Design</h4>
+                                            <div class="article-meta">
+                                                <span class="article-date">Dec 25, 2024</span>
+                                                <span class="article-status published">Published</span>
+                                            </div>
+                                        </div>
+                                        <p class="article-excerpt">Learn the fundamentals of web design and create stunning websites...</p>
+                                        <div class="article-actions">
+                                            <button class="btn btn-sm btn-secondary edit-btn">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <button class="btn btn-sm btn-danger delete-btn">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Messages Section -->
+                <section id="messages" class="admin-section">
+                    <div class="section-header">
+                        <h2>Contact Messages</h2>
+                        <p>View and manage messages from your website visitors</p>
+                    </div>
+                    
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h3>Received Messages</h3>
+                            <div class="message-filters">
+                                <button class="filter-btn active" data-filter="all">All</button>
+                                <button class="filter-btn" data-filter="unread">Unread</button>
+                                <button class="filter-btn" data-filter="read">Read</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="messages-list" id="messages-list">
+                                <div class="message-item unread" data-id="1">
+                                    <div class="message-header">
+                                        <div class="sender-info">
+                                            <h4>John Doe</h4>
+                                            <span class="sender-email">john.doe@gmail.com</span>
+                                        </div>
+                                        <div class="message-meta">
+                                            <span class="message-date">2 hours ago</span>
+                                            <div class="message-actions">
+                                                <button class="btn-icon mark-read-btn" title="Mark as read">
+                                                    <i class="fas fa-envelope-open"></i>
+                                                </button>
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-content">
+                                        <p class="message-subject"><strong>Subject:</strong> Project Inquiry</p>
+                                        <p class="message-text">Hi Aria, I'm interested in hiring you for a web design project. Could we discuss the details?</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="message-item read" data-id="2">
+                                    <div class="message-header">
+                                        <div class="sender-info">
+                                            <h4>Sarah Wilson</h4>
+                                            <span class="sender-email">sarah.wilson@gmail.com</span>
+                                        </div>
+                                        <div class="message-meta">
+                                            <span class="message-date">1 day ago</span>
+                                            <div class="message-actions">
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-content">
+                                        <p class="message-subject"><strong>Subject:</strong> Collaboration Opportunity</p>
+                                        <p class="message-text">Hello! I love your portfolio. Would you be interested in collaborating on a startup project?</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="message-item unread" data-id="3">
+                                    <div class="message-header">
+                                        <div class="sender-info">
+                                            <h4>Mike Johnson</h4>
+                                            <span class="sender-email">mike.johnson@gmail.com</span>
+                                        </div>
+                                        <div class="message-meta">
+                                            <span class="message-date">3 days ago</span>
+                                            <div class="message-actions">
+                                                <button class="btn-icon mark-read-btn" title="Mark as read">
+                                                    <i class="fas fa-envelope-open"></i>
+                                                </button>
+                                                <button class="btn-icon delete-btn" title="Delete">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="message-content">
+                                        <p class="message-subject"><strong>Subject:</strong> Website Redesign</p>
+                                        <p class="message-text">We need to redesign our company website. Can you provide a quote for this project?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="admin-section">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                        <p>Manage your account settings and preferences</p>
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Account Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="admin-form" id="settings-form">
+                                    <div class="form-group">
+                                        <label for="admin-username">Username</label>
+                                        <input type="text" id="admin-username" value="aria" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="admin-email">Email</label>
+                                        <input type="email" id="admin-email" value="aria@example.com" placeholder="Enter your email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password" placeholder="Enter current password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password">New Password</label>
+                                        <input type="password" id="new-password" placeholder="Enter new password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirm New Password</label>
+                                        <input type="password" id="confirm-password" placeholder="Confirm new password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Update Settings
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <div class="card-header">
+                                <h3>Website Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="admin-form" id="website-settings-form">
+                                    <div class="form-group">
+                                        <label for="site-title">Site Title</label>
+                                        <input type="text" id="site-title" value="Aria - Creative Portfolio" placeholder="Enter site title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="site-description">Site Description</label>
+                                        <textarea id="site-description" rows="3" placeholder="Enter site description">Creative web designer and developer portfolio</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-email">Contact Email</label>
+                                        <input type="email" id="contact-email" value="contact@aria.com" placeholder="Enter contact email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="email-notifications" checked>
+                                            <span class="checkmark"></span>
+                                            Enable email notifications for new messages
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Save Website Settings
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="toast success" id="success-toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message">Changes saved successfully!</span>
+        </div>
+        <button class="toast-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="toast error" id="error-toast">
+        <div class="toast-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <span class="toast-message">An error occurred!</span>
+        </div>
+        <button class="toast-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirm-modal">
+        <div class="modal-content small">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="modal-close" id="confirm-modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-message">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="confirm-cancel">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirm-ok">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
+
