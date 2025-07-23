@@ -15,422 +15,60 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
-    <style>
-        :root {
-            --primary: #0d6efd;
-            --primary-light: #e7f1ff;
-            --primary-dark: #0b5ed7;
-            --secondary: #6c757d;
-            --success: #198754;
-            --info: #0dcaf0;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --dark-blue: #1a237e;
-            --teal: #20c997;
-            --indigo: #6610f2;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background-color: #f8f9fa;
-            padding-top: 80px;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 10px;
-        }
-        
-        /* Header Styles */
-        .navbar {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 0.8rem 0;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        }
-        
-        .navbar-brand {
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-        
-        .navbar-brand img {
-            transition: all 0.3s ease;
-        }
-        
-        .navbar.scrolled .navbar-brand img {
-            height: 35px;
-        }
-        
-        .nav-link {
-            font-weight: 500;
-            padding: 0.5rem 1.2rem;
-            margin: 0 0.2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-link:not(.active):hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-2px);
-        }
-        
-        .nav-link.active {
-            background-color: rgba(255,255,255,0.2);
-            font-weight: 600;
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 6rem 0 4rem;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-            background-size: cover;
-            opacity: 0.1;
-        }
-        
-        .hero-title {
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-subtitle {
-            font-weight: 400;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        /* Stat Cards */
-        .stat-card {
-            border-radius: 16px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: none;
-            margin-bottom: 2rem;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-        }
-        
-        .stat-card:hover::before {
-            opacity: 1;
-        }
-        
-        .chart-container {
-            position: relative;
-            height: 320px;
-            margin: 0 -1rem;
-        }
-        
-        .year-card {
-            border-left: 5px solid var(--primary);
-            transition: all 0.4s ease;
-        }
-        
-        .year-card:hover {
-            background-color: var(--primary-light);
-            transform: scale(1.02);
-        }
-        
-        .percentage-change {
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .decrease {
-            color: var(--danger);
-        }
-        
-        .increase {
-            color: var(--success);
-        }
-        
-        /* Section Titles */
-        .section-title {
-            position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 70px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--teal));
-            border-radius: 2px;
-        }
-        
-        /* Animated Counter */
-        .counter {
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        /* Floating Elements */
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Pulse Animation */
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
-        }
-        
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, var(--dark) 0%, #1a1e21 100%);
-            color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
-            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-            margin-top: 4rem;
-        }
-        
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
-            background-size: cover;
-            opacity: 0.1;
-        }
-        
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: block;
-            margin-bottom: 0.75rem;
-            padding: 0.2rem 0;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(8px);
-        }
-        
-        .footer-links i {
-            width: 24px;
-            text-align: center;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover i {
-            color: var(--primary);
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            transition: all 0.3s ease;
-            margin-right: 0.75rem;
-        }
-        
-        .social-icon:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            background: linear-gradient(135deg, var(--primary), var(--indigo));
-            color: white;
-            border: none;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px) scale(1.1);
-        }
-        
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .hero-section {
-                padding: 5rem 0 3rem;
-                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-            }
-            
-            .footer {
-                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
-            .hero-section {
-                padding: 4rem 0 2rem;
-                clip-path: polygon(0 0, 100% 0, 100% 97%, 0 100%);
-            }
-            
-            .nav-link {
-                padding: 0.5rem 1rem;
-                margin: 0.2rem 0;
-            }
-            
-            .back-to-top {
-                width: 50px;
-                height: 50px;
-                font-size: 1.25rem;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://via.placeholder.com/40x40/0d6efd/ffffff?text=KTK" alt="Logo" height="40" class="me-2">
-                <span>Kelurahan Tanjungpinang Kota</span>
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-house-door me-1"></i> Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-newspaper me-1"></i> Berita</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-file-earmark-text me-1"></i> Layanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#"><i class="bi bi-bar-chart-line me-1"></i> Statistik</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-info-circle me-1"></i> Tentang</a>
-                    </li>
-                    <li class="nav-item ms-lg-2">
-                        <a class="btn btn-outline-light btn-sm mt-1 mt-lg-0" href="#"><i class="bi bi-person-circle me-1"></i> Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-lg">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="assets/images/logo-tanjungpinang.png" alt="Logo" height="40" class="me-2">
+      <div>
+        <div class="fw-bold">KELURAHAN TANJUNGPINANG KOTA</div>
+        <small class="text-light opacity-75"></small>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-house-door me-1"></i> Beranda
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="berita.html">
+            <i class="bi bi-newspaper me-1"></i> Berita
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="download-area.html">
+            <i class="bi bi-download me-1"></i> Download Area
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="galeri.html">
+            <i class="bi bi-images me-1"></i> Galeri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="data-statistik.html">
+            <i class="bi bi-bar-chart-line me-1"></i> Data Statistik
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="peta-kelurahan.html">
+            <i class="bi bi-map me-1"></i> Peta Kelurahan
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -751,79 +389,120 @@
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3 text-white">Kelurahan Tanjungpinang Kota</h5>
-                    <p><i class="bi bi-geo-alt-fill me-2"></i> Jl. Contoh No. 123, Tanjungpinang Kota, Kepulauan Riau</p>
-                    <p><i class="bi bi-telephone-fill me-2"></i> (0771) 1234567</p>
-                    <p><i class="bi bi-envelope-fill me-2"></i> info@tanjungpinangkota.go.id</p>
-                    <div class="mt-3">
-                        <img src="https://via.placeholder.com/120x40/ffffff/0d6efd?text=LOGO" alt="Logo Pemerintah" class="img-fluid me-2" style="max-height: 50px;">
-                        <img src="https://via.placeholder.com/120x40/ffffff/0d6efd?text=KOTA" alt="Logo Kota" class="img-fluid" style="max-height: 50px;">
+   <footer class="bg-dark text-light pt-5 pb-4">
+        <div class="container">
+            <div class="row justify-content-between align-items-start">
+                <!-- Hubungi Kami -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold text-primary mb-3">Hubungi Kami</h5>
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="me-3">
+                            <img src="assets/images/logo-tanjungpinang.png" alt="Logo" style="width: 80px; height: auto;" class="img-fluid">
+                        </div>
+                        <div class="small">
+                            <p class="fw-bold mb-1">Kelurahan Tanjungpinang Kota</p>
+                            <p class="mb-1">Kecamatan Tanjungpinang Kota</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3 text-white">Tautan Cepat</h5>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="footer-links">
-                                <a href="#"><i class="bi bi-chevron-right"></i> Beranda</a>
-                                <a href="#"><i class="bi bi-chevron-right"></i> Profil</a>
-                                <a href="#"><i class="bi bi-chevron-right"></i> Layanan</a>
-                                <a href="#"><i class="bi bi-chevron-right"></i> Berita</a>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2">
+                            <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                            Jl. Mesjid No.7, Tanjungpinang Kota, Kota Tanjungpinang, Kepulauan Riau
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                            tpitimurkotakel@tanjungpinangkota.go.id
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                            (0771) 1234567
+                        </li>
+                        <li>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="footer-links">
-                                <a href="#"><i class="bi bi-chevron-right"></i> Statistik</a>
-                                <a href="#"><i class="bi bi-chevron-right"></i> Galeri</a>
-                                <a href="#"><i class="bi bi-chevron-right"></i> Pengaduan</a>
-                                <a href="#"><i class="bi bi-chevron-right"></i> Kontak</a>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <h5 class="fw-bold mb-3 text-white">Media Sosial</h5>
-                    <div class="d-flex flex-wrap mb-3">
-                        <a href="#" class="social-icon me-2 mb-2"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="social-icon me-2 mb-2"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon me-2 mb-2"><i class="bi bi-youtube"></i></a>
-                        <a href="#" class="social-icon me-2 mb-2"><i class="bi bi-whatsapp"></i></a>
-                        <a href="#" class="social-icon me-2 mb-2"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="social-icon me-2 mb-2"><i class="bi bi-telegram"></i></a>
-                    </div>
-                    <div class="mt-3">
-                        <p class="small text-white-50 mb-1">Jam Operasional Kantor:</p>
-                        <p class="small text-white mb-3">Senin-Kamis: 08:00 - 16:00 WIB<br>Jumat: 08:00 - 11:00 WIB</p>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control form-control-sm" placeholder="Cari informasi...">
-                            <button class="btn btn-primary btn-sm" type="button"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <hr class="my-4 bg-secondary">
-            
-            <div class="row">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <p class="small mb-0 text-white-50">&copy; 2024 Kelurahan Tanjungpinang Kota. Seluruh hak cipta dilindungi.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="small mb-0 text-white-50">
-                        <a href="#" class="text-white-50 me-2">Kebijakan Privasi</a>
-                        <a href="#" class="text-white-50 me-2">Syarat Penggunaan</a>
-                        <a href="#" class="text-white-50">Peta Situs</a>
-                    </p>
-                </div>
-            </div>
+
+      <!-- Menu Utama -->
+<div class="col-md-3 mb-4">
+  <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">Menu Utama</h5>
+  <ul class="list-unstyled small">
+    <li class="mb-2">
+      <a href="index.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-house-door-fill me-2"></i> Beranda
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="berita.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-newspaper me-2"></i> Berita
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="download-area.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-download me-2"></i> Download
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="galeri.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-images me-2"></i> Galeri
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="data-statistik.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-bar-chart-fill me-2"></i> Data Statistik
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="peta-kelurahan.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-map-fill me-2"></i> Peta Kelurahan
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      <!-- Berita Populer -->
+        <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">Berita Populer</h5>
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Selamat Datang di Website Kelurahan Tanjungpinang Kota</h6>
+            <p class="text-secondary small mb-0"><i class="bi bi-calendar me-2"></i>Rabu, 31 Agustus 2022</p>
         </div>
-    </footer>
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Penghargaan Kepala Daerah Perempuan Inspiratif dari Tempo Media Grup</h6>
+            <p class="text-secondary small mb-0"><i class="bi bi-calendar me-2"></i>Rabu, 28 September 2022</p>
+        </div>
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Penyerahan Simbolis Kartu Identitas Anak (KIA)</h6>
+            <p class="text-secondary small mb-0"><i class="bi bi-calendar me-2"></i>Kamis, 15 Desember 2022</p>
+        </div>
+        </div>
+
+        </div>
+
+
+
+
+    <!-- Footer Bottom Tengah -->
+    <hr class="border-secondary">
+    <div class="text-center pt-2">
+      <small>Design by <a href="#" class="text-primary fw-bold">Mahasiswa Teknik Informatika</a> &copy;2025</small>
+    </div>
+  </div>
+</footer>
 
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top">
