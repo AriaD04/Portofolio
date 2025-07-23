@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Galeri - Kelurahan Tanjungpinang Barat</title>
+    <meta name="description" content="Detail galeri kegiatan Kelurahan Tanjungpinang Barat">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body style="font-family: 'Poppins', sans-serif;">
+     <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-lg">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="assets/images/logo-tanjungpinang.png" alt="Logo" height="40" class="me-2">
+      <div>
+        <div class="fw-bold">KELURAHAN TANJUNGPINANG KOTA</div>
+        <small class="text-light opacity-75">Kecamatan Tanjungpinang Kota</small>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-house-door me-1"></i> Beranda
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="berita.html">
+            <i class="bi bi-newspaper me-1"></i> Berita
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="download-area.html">
+            <i class="bi bi-download me-1"></i> Download Area
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="galeri.html">
+            <i class="bi bi-images me-1"></i> Galeri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="data-statistik.html">
+            <i class="bi bi-bar-chart-line me-1"></i> Data Statistik
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="peta-kelurahan.html">
+            <i class="bi bi-map me-1"></i> Peta Kelurahan
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <!-- Gallery Header -->
+    <section class="py-5 mt-5" style="background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb" style="--bs-breadcrumb-divider: '›';">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="galeri.html" class="text-white-50">Galeri</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page" id="galleryTitle">Detail Galeri</li>
+                        </ol>
+                    </nav>
+                    <div class="gallery-header-content text-white">
+                        <h1 class="display-5 fw-bold mb-3" id="galleryMainTitle">Judul Galeri</h1>
+                        <div class="gallery-meta d-flex flex-wrap align-items-center mb-3">
+                            <span class="badge bg-warning text-dark me-2 mb-2" id="galleryCategory">Kategori</span>
+                            <span class="me-3 mb-2"><i class="bi bi-calendar me-1"></i><span id="galleryDate">Tanggal</span></span>
+                            <span class="me-3 mb-2"><i class="bi bi-images me-1"></i><span id="galleryPhotoCount">0</span> Foto</span>
+                            <span class="mb-2"><i class="bi bi-eye me-1"></i><span id="galleryViews">0</span> views</span>
+                        </div>
+                        <p class="lead mt-3" id="galleryDescription">Deskripsi galeri akan ditampilkan di sini.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <!-- Photo Grid -->
+                    <div class="photo-grid mb-4" id="photoGrid">
+                        <!-- Photos will be populated by JavaScript -->
+                    </div>
+                    
+                    <!-- Gallery Description -->
+                    <div class="card shadow-sm border-0 overflow-hidden">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4 pb-2 border-bottom"><i class="bi bi-info-circle-fill text-primary me-2"></i>Tentang Kegiatan</h3>
+                            <div id="galleryFullDescription">
+                                <!-- Full description will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <!-- Gallery Info -->
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Informasi Galeri</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span class="fw-medium">Fotografer:</span>
+                                    <span class="text-end" id="galleryPhotographer">-</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span class="fw-medium">Tanggal Kegiatan:</span>
+                                    <span class="text-end" id="galleryEventDate">-</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span class="fw-medium">Lokasi:</span>
+                                    <span class="text-end" id="galleryLocation">Kelurahan Tanjungpinang Barat</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span class="fw-medium">Kategori:</span>
+                                    <span class="text-end" id="galleryCategoryInfo">-</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                    <span class="fw-medium">Total Foto:</span>
+                                    <span class="text-end" id="galleryTotalPhotos">-</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-bottom-0">
+                                    <span class="fw-medium">Dilihat:</span>
+                                    <span class="text-end" id="galleryTotalViews">-</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Share Gallery -->
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="bi bi-share me-2"></i>Bagikan Galeri</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-primary d-flex align-items-center justify-content-center" onclick="shareToFacebook()">
+                                    <i class="bi bi-facebook me-2"></i> Facebook
+                                </button>
+                                <button class="btn btn-outline-info d-flex align-items-center justify-content-center" onclick="shareToTwitter()">
+                                    <i class="bi bi-twitter me-2"></i> Twitter
+                                </button>
+                                <button class="btn btn-outline-success d-flex align-items-center justify-content-center" onclick="shareToWhatsApp()">
+                                    <i class="bi bi-whatsapp me-2"></i> WhatsApp
+                                </button>
+                                <button class="btn btn-outline-secondary d-flex align-items-center justify-content-center" onclick="copyLink()">
+                                    <i class="bi bi-link-45deg me-2"></i> Copy Link
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Galleries -->
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="bi bi-collection me-2"></i>Galeri Terkait</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="relatedGalleries" class="list-group list-group-flush">
+                                <!-- Related galleries will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Modal -->
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="photoModalLabel">Foto Kegiatan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="photo-viewer position-relative">
+                        <div class="ratio ratio-16x9">
+                            <img id="modalPhoto" src="" alt="Photo" class="img-fluid w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="photo-navigation position-absolute top-50 start-0 end-0 d-flex justify-content-between px-3">
+                            <button class="btn btn-light rounded-circle shadow" id="prevPhoto">
+                                <i class="bi bi-chevron-left"></i>
+                            </button>
+                            <button class="btn btn-light rounded-circle shadow" id="nextPhoto">
+                                <i class="bi bi-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="photo-counter position-absolute bottom-0 start-50 translate-middle-x mb-3">
+                            <span class="badge bg-dark rounded-pill px-3 py-2" id="photoCounter">1 / 1</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div class="photo-info">
+                        <p class="mb-0 fw-medium" id="photoDescription">Deskripsi foto</p>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary me-2" onclick="rotatePhoto(-90)">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary me-2" onclick="rotatePhoto(90)">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary" onclick="downloadPhoto()">
+                            <i class="bi bi-download me-1"></i> Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <footer class="bg-dark text-light pt-5 pb-4">
+  <div class="container">
+    <div class="row justify-content-between align-items-start">
+      <!-- Hubungi Kami -->
+      <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-primary">Hubungi Kami</h5>
+        <div class="d-flex align-items-start">
+          <div class="me-3">
+            <img src="assets/images/logo-tanjungpinang.png" alt="Logo" style="width: 80px; height: auto;">
+          </div>
+          <div class="small">
+            <p class="fw-bold mb-1">Kelurahan Tanjungpinang Kota Kecamatan Tanjungpinang Kota</p>
+            <p class="mb-1"><i class="bi bi-geo-alt-fill me-2"></i>Jl. Mesjid No.7, Tanjungpinang Kota, Kota Tanjungpinang, Kepulauan Riau</p>
+            <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>tpikotakel@tanjungpinangkota.go.id</p>
+            <p class="mb-3"><i class="bi bi-telephone-fill me-2"></i>(-)</p>
+             <div class="d-flex gap-2">
+              <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook me-1"></i> Facebook</a>
+              <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram me-1"></i> Instagram</a>
+              <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook me-1"></i> Twitter</a>
+              <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram me-1"></i> Youtube</a>
+            </div>
+          
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Menu Utama -->
+<div class="col-md-3 mb-4">
+  <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">Menu Utama</h5>
+  <ul class="list-unstyled small">
+    <li class="mb-2">
+      <a href="index.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-house-door-fill me-2"></i> Beranda
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="berita.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-newspaper me-2"></i> Berita
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="download-area.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-download me-2"></i> Download
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="galeri.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-images me-2"></i> Galeri
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="data-statistik.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-bar-chart-fill me-2"></i> Data Statistik
+      </a>
+    </li>
+    <li class="mb-2">
+      <a href="peta-kelurahan.html" class="text-light text-decoration-none d-flex align-items-center">
+        <i class="bi bi-map-fill me-2"></i> Peta Kelurahan
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      <!-- Berita Populer -->
+        <div class="col-md-4 mb-4">
+        <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">Berita Populer</h5>
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Selamat Datang di Website Kelurahan Tanjungpinang Kota</h6>
+            <p class="text-secondary small mb-0"><i class="bi bi-calendar me-2"></i>Rabu, 31 Agustus 2022</p>
+        </div>
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Penghargaan Kepala Daerah Perempuan Inspiratif dari Tempo Media Grup</h6>
+            <p class="text-secondary small mb-0"><i class="bi bi-calendar me-2"></i>Rabu, 28 September 2022</p>
+        </div>
+        <div class="mb-4">
+            <h6 class="fw-bold mb-1">Penyerahan Simbolis Kartu Identitas Anak (KIA)</h6>
+            <p class="text-secondary small mb-0"><i class="bi bi-calendar me-2"></i>Kamis, 15 Desember 2022</p>
+        </div>
+        </div>
+
+    </div>
+
+   
+
+
+    <!-- Footer Bottom Tengah -->
+    <hr class="border-secondary">
+    <div class="text-center pt-2">
+      <small>Design by <a href="#" class="text-primary fw-bold">Diskominfo Tanjungpinang</a> &copy;2022</small>
+    </div>
+  </div>
+</footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-primary btn-floating rounded-circle shadow">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+    
+    <!-- Gallery Detail Functionality -->
+    <script>
+        // Gallery data (same as in galeri.html)
+        const galleryData = [
+            {
+                id: 1,
+                title: "Pembangunan Jalan Lingkungan RT 05",
+                description: "Dokumentasi lengkap proses pembangunan jalan lingkungan di RT 05 mulai dari persiapan, pelaksanaan, hingga selesai",
+                fullDescription: `
+                    <p>Kegiatan pembangunan jalan lingkungan di RT 05 merupakan salah satu program prioritas kelurahan untuk meningkatkan infrastruktur dan kualitas hidup masyarakat. Proyek ini dimulai pada tanggal 10 Januari 2025 dan selesai pada tanggal 15 Januari 2025.</p>
+                    
+                    <h5>Tahapan Pelaksanaan:</h5>
+                    <ul>
+                        <li><strong>Persiapan:</strong> Survei lokasi, pengukuran, dan persiapan material</li>
+                        <li><strong>Pembersihan:</strong> Pembersihan area yang akan dibangun</li>
+                        <li><strong>Penggalian:</strong> Penggalian tanah sesuai dengan desain yang telah ditentukan</li>
+                        <li><strong>Pemasangan:</strong> Pemasangan batu pondasi dan pengecoran</li>
+                        <li><strong>Finishing:</strong> Penyelesaian akhir dan pembersihan area</li>
+                    </ul>
+                    
+                    <p>Proyek ini melibatkan partisipasi aktif masyarakat setempat dalam bentuk gotong royong dan swadaya. Total panjang jalan yang dibangun adalah 150 meter dengan lebar 3 meter.</p>
+                    
+                    <p>Manfaat yang dirasakan masyarakat setelah pembangunan jalan ini antara lain:</p>
+                    <ul>
+                        <li>Akses transportasi yang lebih mudah</li>
+                        <li>Peningkatan nilai properti di sekitar area</li>
+                        <li>Kemudahan akses untuk kendaraan darurat</li>
+                        <li>Peningkatan aktivitas ekonomi lokal</li>
+                    </ul>
+                `,
+                category: "pembangunan",
+                date: "2025-01-15",
+                image: "assets/images/gallery1.jpg",
+                photoCount: 24,
+                views: 342,
+                photographer: "Tim Dokumentasi Kelurahan",
+                location: "RT 05, Kelurahan Tanjungpinang Barat",
+                photos: [
+                    { src: "assets/images/gallery1.jpg", description: "Persiapan area pembangunan jalan" },
+                    { src: "assets/images/gallery2.jpg", description: "Proses penggalian tanah" },
+                    { src: "assets/images/gallery3.jpg", description: "Pemasangan batu pondasi" },
+                    { src: "assets/images/gallery4.jpg", description: "Proses pengecoran jalan" },
+                    { src: "assets/images/gallery5.jpg", description: "Gotong royong masyarakat" },
+                    { src: "assets/images/gallery6.jpg", description: "Hasil akhir pembangunan jalan" },
+                    { src: "assets/images/news1.jpg", description: "Dokumentasi tim kerja" },
+                    { src: "assets/images/news2.jpg", description: "Peralatan konstruksi" },
+                    { src: "assets/images/news3.jpg", description: "Proses finishing" },
+                    { src: "assets/images/gallery1.jpg", description: "Jalan yang telah selesai dibangun" },
+                    { src: "assets/images/gallery2.jpg", description: "Masyarakat menggunakan jalan baru" },
+                    { src: "assets/images/gallery3.jpg", description: "Suasana lingkungan setelah pembangunan" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Posyandu Balita Januari 2025",
+                description: "Kegiatan posyandu balita rutin bulan Januari dengan pemeriksaan kesehatan dan pemberian vitamin",
+                fullDescription: `
+                    <p>Kegiatan Posyandu (Pos Pelayanan Terpadu) Balita merupakan program rutin bulanan yang dilaksanakan oleh Kelurahan Tanjungpinang Barat untuk memantau tumbuh kembang balita dan memberikan pelayanan kesehatan dasar kepada masyarakat.</p>
+                    
+                    <h5>Layanan yang Diberikan:</h5>
+                    <ul>
+                        <li>Penimbangan berat badan dan pengukuran tinggi badan</li>
+                        <li>Pemberian vitamin A dan tablet tambah darah</li>
+                        <li>Imunisasi sesuai jadwal</li>
+                        <li>Konsultasi gizi dan kesehatan</li>
+                        <li>Penyuluhan kesehatan untuk ibu dan balita</li>
+                    </ul>
+                    
+                    <p>Pada kegiatan bulan Januari 2025 ini, tercatat 45 balita yang hadir untuk mendapatkan pelayanan kesehatan. Kegiatan ini didukung oleh tenaga kesehatan dari Puskesmas setempat dan kader posyandu yang telah terlatih.</p>
+                `,
+                category: "kesehatan",
+                date: "2025-01-12",
+                image: "assets/images/gallery2.jpg",
+                photoCount: 12,
+                views: 189,
+                photographer: "Tim Kesehatan",
+                location: "Balai Kelurahan Tanjungpinang Barat",
+                photos: [
+                    { src: "assets/images/gallery2.jpg", description: "Pendaftaran peserta posyandu" },
+                    { src: "assets/images/gallery3.jpg", description: "Penimbangan balita" },
+                    { src: "assets/images/gallery4.jpg", description: "Pemeriksaan kesehatan" },
+                    { src: "assets/images/gallery5.jpg", description: "Pemberian vitamin" },
+                    { src: "assets/images/gallery6.jpg", description: "Konsultasi dengan bidan" },
+                    { src: "assets/images/news1.jpg", description: "Penyuluhan kesehatan" },
+                    { src: "assets/images/news2.jpg", description: "Imunisasi balita" },
+                    { src: "assets/images/news3.jpg", description: "Kader posyandu bekerja" },
+                    { src: "assets/images/gallery1.jpg", description: "Suasana kegiatan posyandu" },
+                    { src: "assets/images/gallery2.jpg", description: "Ibu dan balita antri" },
+                    { src: "assets/images/gallery3.jpg", description: "Pencatatan hasil pemeriksaan" },
+                    { src: "assets/images/gallery4.jpg", description: "Foto bersama peserta" }
+                ]
+            }
+        ];
+
+        let currentGallery = null;
+        let currentPhotoIndex = 0;
+        let currentRotation = 0;
+
+        // Get gallery ID from URL
+        function getGalleryIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id')) || 1;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('id-ID', options);
+        }
+
+        // Get category badge class
+        function getCategoryBadgeClass(category) {
+            const classes = {
+                'pembangunan': 'bg-primary',
+                'kesehatan': 'bg-success',
+                'sosial': 'bg-warning',
+                'ekonomi': 'bg-info',
+                'lingkungan': 'bg-success',
+                'pendidikan': 'bg-secondary',
+                'olahraga': 'bg-danger'
+            };
+            return classes[category] || 'bg-secondary';
+        }
+
+        // Update view count
+        function updateViewCount(galleryId) {
+            const viewKey = `gallery_view_${galleryId}`;
+            let currentViews = localStorage.getItem(viewKey);
+            
+            if (!currentViews) {
+                const gallery = galleryData.find(g => g.id == galleryId);
+                if (gallery) {
+                    currentViews = gallery.views + 1;
+                    localStorage.setItem(viewKey, currentViews);
+                }
+            } else {
+                currentViews = parseInt(currentViews) + 1;
+                localStorage.setItem(viewKey, currentViews);
+            }
+            
+            return currentViews;
+        }
+
+        // Get view count
+        function getViewCount(galleryId) {
+            const viewKey = `gallery_view_${galleryId}`;
+            let currentViews = localStorage.getItem(viewKey);
+            
+            if (!currentViews) {
+                const gallery = galleryData.find(g => g.id == galleryId);
+                return gallery ? gallery.views : 0;
+            }
+            
+            return parseInt(currentViews);
+        }
+
+        // Load gallery data
+        function loadGalleryData() {
+            const galleryId = getGalleryIdFromUrl();
+            currentGallery = galleryData.find(g => g.id === galleryId);
+            
+            if (!currentGallery) {
+                // Redirect to gallery page if gallery not found
+                window.location.href = 'galeri.html';
+                return;
+            }
+
+            // Update view count
+            const newViews = updateViewCount(galleryId);
+
+            // Update page title and meta
+            document.title = `${currentGallery.title} - Kelurahan Tanjungpinang Barat`;
+            
+            // Update header content
+            document.getElementById('galleryTitle').textContent = currentGallery.title;
+            document.getElementById('galleryMainTitle').textContent = currentGallery.title;
+            document.getElementById('galleryCategory').textContent = currentGallery.category.charAt(0).toUpperCase() + currentGallery.category.slice(1);
+            document.getElementById('galleryCategory').className = `badge ${getCategoryBadgeClass(currentGallery.category)} text-white me-2`;
+            document.getElementById('galleryDate').textContent = formatDate(currentGallery.date);
+            document.getElementById('galleryPhotoCount').textContent = currentGallery.photoCount;
+            document.getElementById('galleryViews').textContent = newViews;
+            document.getElementById('galleryDescription').textContent = currentGallery.description;
+
+            // Update sidebar info
+            document.getElementById('galleryPhotographer').textContent = currentGallery.photographer;
+            document.getElementById('galleryEventDate').textContent = formatDate(currentGallery.date);
+            document.getElementById('galleryLocation').textContent = currentGallery.location;
+            document.getElementById('galleryCategoryInfo').textContent = currentGallery.category.charAt(0).toUpperCase() + currentGallery.category.slice(1);
+            document.getElementById('galleryTotalPhotos').textContent = currentGallery.photoCount;
+            document.getElementById('galleryTotalViews').textContent = newViews;
+
+            // Update full description
+            document.getElementById('galleryFullDescription').innerHTML = currentGallery.fullDescription;
+
+            // Render photos
+            renderPhotoGrid();
+            
+            // Load related galleries
+            loadRelatedGalleries();
+        }
+
+        // Render photo grid
+        function renderPhotoGrid() {
+            const photoGrid = document.getElementById('photoGrid');
+            const photos = currentGallery.photos || [];
+            
+            photoGrid.innerHTML = photos.map((photo, index) => `
+                <div class="photo-item position-relative rounded-3 overflow-hidden shadow-sm" onclick="openPhotoModal(${index})">
+                    <img src="${photo.src}" alt="${photo.description}" class="img-fluid w-100 h-100 object-fit-cover">
+                    <div class="photo-overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center bg-dark bg-opacity-50 opacity-0 transition-all">
+                        <i class="bi bi-zoom-in text-white fs-4"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open photo modal
+        function openPhotoModal(photoIndex) {
+            currentPhotoIndex = photoIndex;
+            currentRotation = 0;
+            const photos = currentGallery.photos || [];
+            const photo = photos[photoIndex];
+            
+            if (photo) {
+                const modalPhoto = document.getElementById('modalPhoto');
+                modalPhoto.src = photo.src;
+                modalPhoto.alt = photo.description;
+                modalPhoto.style.transform = 'rotate(0deg)';
+                document.getElementById('photoDescription').textContent = photo.description;
+                document.getElementById('photoCounter').textContent = `${photoIndex + 1} / ${photos.length}`;
+                
+                const modal = new bootstrap.Modal(document.getElementById('photoModal'));
+                modal.show();
+            }
+        }
+
+        // Rotate photo in modal
+        function rotatePhoto(degrees) {
+            currentRotation += degrees;
+            const modalPhoto = document.getElementById('modalPhoto');
+            modalPhoto.style.transform = `rotate(${currentRotation}deg)`;
+        }
+
+        // Navigate photos in modal
+        function navigatePhoto(direction) {
+            const photos = currentGallery.photos || [];
+            if (direction === 'prev') {
+                currentPhotoIndex = currentPhotoIndex > 0 ? currentPhotoIndex - 1 : photos.length - 1;
+            } else {
+                currentPhotoIndex = currentPhotoIndex < photos.length - 1 ? currentPhotoIndex + 1 : 0;
+            }
+            
+            const photo = photos[currentPhotoIndex];
+            const modalPhoto = document.getElementById('modalPhoto');
+            modalPhoto.src = photo.src;
+            modalPhoto.alt = photo.description;
+            modalPhoto.style.transform = 'rotate(0deg)';
+            currentRotation = 0;
+            document.getElementById('photoDescription').textContent = photo.description;
+            document.getElementById('photoCounter').textContent = `${currentPhotoIndex + 1} / ${photos.length}`;
+        }
+
+        // Load related galleries
+        function loadRelatedGalleries() {
+            const relatedGalleries = galleryData
+                .filter(g => g.id !== currentGallery.id && g.category === currentGallery.category)
+                .slice(0, 3);
+            
+            const relatedContainer = document.getElementById('relatedGalleries');
+            
+            if (relatedGalleries.length === 0) {
+                relatedContainer.innerHTML = '<div class="alert alert-info">Tidak ada galeri terkait.</div>';
+                return;
+            }
+            
+            relatedContainer.innerHTML = relatedGalleries.map(gallery => `
+                <a href="detail-galeri.html?id=${gallery.id}" class="list-group-item list-group-item-action border-0 rounded-3 mb-2">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0">
+                            <img src="${gallery.image}" alt="${gallery.title}" class="rounded-2" width="80" height="60" style="object-fit: cover;">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h6 class="mb-1">${gallery.title}</h6>
+                            <small class="text-muted d-block"><i class="bi bi-calendar me-1"></i>${formatDate(gallery.date)}</small>
+                            <div class="d-flex small text-muted mt-1">
+                                <span class="me-2"><i class="bi bi-images me-1"></i>${gallery.photoCount}</span>
+                                <span><i class="bi bi-eye me-1"></i>${getViewCount(gallery.id)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Share functions
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(currentGallery.title);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank');
+        }
+
+        function shareToTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(currentGallery.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+        }
+
+        function shareToWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(currentGallery.title);
+            window.open(`https://wa.me/?text=${title} ${url}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-success position-fixed top-0 start-50 translate-middle-x mt-3 shadow';
+                alert.style.zIndex = '1100';
+                alert.textContent = 'Link berhasil disalin!';
+                document.body.appendChild(alert);
+                
+                setTimeout(() => {
+                    alert.classList.add('fade');
+                    setTimeout(() => alert.remove(), 300);
+                }, 2000);
+            });
+        }
+
+        function downloadPhoto() {
+            const photos = currentGallery.photos || [];
+            const photo = photos[currentPhotoIndex];
+            if (photo) {
+                // In a real implementation, this would trigger an actual download
+                const alert = document.createElement('div');
+                alert.className = 'alert alert-success position-fixed top-0 start-50 translate-middle-x mt-3 shadow';
+                alert.style.zIndex = '1100';
+                alert.textContent = `Mengunduh foto: ${photo.description}`;
+                document.body.appendChild(alert);
+                
+                setTimeout(() => {
+                    alert.classList.add('fade');
+                    setTimeout(() => alert.remove(), 300);
+                }, 2000);
+            }
+        }
+
+        // Back to top button
+        function setupBackToTop() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Event listeners
+        document.getElementById('prevPhoto').addEventListener('click', () => navigatePhoto('prev'));
+        document.getElementById('nextPhoto').addEventListener('click', () => navigatePhoto('next'));
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('photoModal');
+            if (modal.classList.contains('show')) {
+                if (e.key === 'ArrowLeft') {
+                    navigatePhoto('prev');
+                } else if (e.key === 'ArrowRight') {
+                    navigatePhoto('next');
+                } else if (e.key === 'Escape') {
+                    bootstrap.Modal.getInstance(modal).hide();
+                }
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGalleryData();
+            setupBackToTop();
+        });
+    </script>
+
+    <style>
+        /* Custom styles */
+        body {
+            padding-top: 56px;
+        }
+        
+        /* Breadcrumb customization */
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb-item a {
+            text-decoration: none;
+        }
+        
+        /* Photo grid improvements */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .photo-item {
+            height: 180px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .photo-overlay {
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-overlay {
+            opacity: 1 !important;
+        }
+        
+        /* Card styling */
+        .card {
+            border: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .card-header {
+            border-bottom: none;
+        }
+        
+        /* Modal improvements */
+        .photo-viewer {
+            background-color: #f8f9fa;
+        }
+        
+        .photo-navigation button {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Back to top button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            width: 50px;
+            height: 50px;
+            z-index: 99;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .photo-item {
+                height: 120px;
+            }
+            
+            .gallery-header-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-meta span {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Animation classes */
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        .object-fit-cover {
+            object-fit: cover;
+        }
+        
+        /* Custom shadow */
+        .shadow-sm {
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important;
+        }
+    </style>
+</body>
+</html>
