@@ -71,7 +71,6 @@
   </div>
 </nav>
 
-
     <!-- Gallery Header -->
     <section class="py-5 mt-5" style="background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);">
         <div class="container">
@@ -305,7 +304,6 @@
   </ul>
 </div>
 
-
       <!-- Berita Populer -->
         <div class="col-md-4 mb-4">
         <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">Berita Populer</h5>
@@ -324,9 +322,6 @@
         </div>
 
     </div>
-
-   
-
 
     <!-- Footer Bottom Tengah -->
     <hr class="border-secondary">
@@ -737,119 +732,5 @@
         });
     </script>
 
-    <style>
-        /* Custom styles */
-        body {
-            padding-top: 56px;
-        }
-        
-        /* Breadcrumb customization */
-        .breadcrumb {
-            background-color: transparent;
-            padding: 0;
-            margin-bottom: 1rem;
-        }
-        
-        .breadcrumb-item a {
-            text-decoration: none;
-        }
-        
-        /* Photo grid improvements */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .photo-item {
-            height: 180px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .photo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .photo-overlay {
-            transition: opacity 0.3s ease;
-        }
-        
-        .photo-item:hover .photo-overlay {
-            opacity: 1 !important;
-        }
-        
-        /* Card styling */
-        .card {
-            border: none;
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-3px);
-        }
-        
-        .card-header {
-            border-bottom: none;
-        }
-        
-        /* Modal improvements */
-        .photo-viewer {
-            background-color: #f8f9fa;
-        }
-        
-        .photo-navigation button {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Back to top button */
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            width: 50px;
-            height: 50px;
-            z-index: 99;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .photo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .photo-item {
-                height: 120px;
-            }
-            
-            .gallery-header-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .gallery-meta span {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Animation classes */
-        .transition-all {
-            transition: all 0.3s ease;
-        }
-        
-        .object-fit-cover {
-            object-fit: cover;
-        }
-        
-        /* Custom shadow */
-        .shadow-sm {
-            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075) !important;
-        }
-    </style>
 </body>
 </html>
